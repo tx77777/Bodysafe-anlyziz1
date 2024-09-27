@@ -1,0 +1,189 @@
+
+
+@Manual{citeR,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2023},
+    url = {https://www.R-project.org/},
+  }
+  
+  
+@Article{thereferencecanbewhatever,
+    title = {Welcome to the {tidyverse}},
+    author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
+    year = {2019},
+    journal = {Journal of Open Source Software},
+    volume = {4},
+    number = {43},
+    pages = {1686},
+    doi = {10.21105/joss.01686},
+  }  
+  
+  
+@Manual{citeLahman,
+    title = {Lahman: Sean `Lahman' Baseball Database},
+    author = {Michael Friendly and Chris Dalzell and Martin Monkman and Dennis Murphy},
+    year = {2020},
+    note = {R package version 8.0-0},
+    url = {https://CRAN.R-project.org/package=Lahman},
+  }  
+  
+  
+@article{gebru2021datasheets,
+  title={Datasheets for datasets},
+  author={Gebru, Timnit and Morgenstern, Jamie and Vecchione, Briana and Vaughan, Jennifer Wortman and Wallach, Hanna and Iii, Hal Daum{\'e} and Crawford, Kate},
+  journal={Communications of the ACM},
+  volume={64},
+  number={12},
+  pages={86--92},
+  year={2021},
+  publisher={ACM New York, NY, USA}
+}
+
+@Misc{rstanarm,
+    title = {rstanarm: {Bayesian} applied regression modeling via {Stan}},
+    author = {Ben Goodrich and Jonah Gabry and Imad Ali and Sam Brilleman},
+    note = {R package version 2.21.3},
+    year = {2022},
+    url = {https://mc-stan.org/rstanarm/},
+  }
+  
+@Manual{palmerpenguins,
+    title = {palmerpenguins: Palmer Archipelago (Antarctica) penguin data},
+    author = {Allison Marie Horst and Alison Presmanes Hill and Kristen B Gorman},
+    year = {2020},
+    note = {R package version 0.1.0},
+    doi = {10.5281/zenodo.3960218},
+    url = {https://allisonhorst.github.io/palmerpenguins/},
+  }
+  
+  
+@Article{rohan,
+    title = {Welcome to the {tidyverse}},
+    author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
+    year = {2019},
+    journal = {Journal of Open Source Software},
+    volume = {4},
+    number = {43},
+    pages = {1686},
+    doi = {10.21105/joss.01686},
+  }  
+  
+  
+  @Article{who2020,
+    title = {Coronavirus disease (COVID-19) pandemic},
+    author = {World Health Organization},
+    year = {2020},
+    journal = {World Health Organization},
+    url = {https://www.who.int/emergencies/diseases/novel-coronavirus-2019}
+}
+
+@Article{tphdefinition,
+    title = {Personal Service Settings and Infection Prevention and Control (IPAC) Guidelines},
+    author = {Toronto Public Health},
+    journal = {Toronto Public Health},
+    url = {https://www.toronto.ca/community-people/health-wellness-care/health-inspections-monitoring/personal-service-settings/}
+}  
+
+@Article{ontarioHPPA,
+    title = {Personal Service Settings Regulation under the Health Protection and Promotion Act (HPPA)},
+    author = {Government of Ontario},
+    year = {2020},
+    journal = {Ontario Laws},
+    url = {https://www.ontario.ca/laws/statute/90h07}
+}
+
+@Article{secdataoverview,
+    title = {Inspection Data for Personal Care Service Settings 2023},
+    author = {Toronto Public Health},
+    year = {2023},
+    journal = {Toronto Public Health},
+    url = {[Insert actual dataset source link]}
+}
+
+@Article{cdc2021,
+    title = {Guidelines for Infection Control in Health Care Personnel, 2021},
+    author = {Centers for Disease Control and Prevention},
+    year = {2021},
+    journal = {CDC Guidelines},
+    url = {https://www.cdc.gov/infectioncontrol/guidelines/}
+}
+
+@Article{publichealthontario,
+    title = {COVID-19 in Personal Service Settings: Impact and Prevention Measures},
+    author = {Public Health Ontario},
+    year = {2020},
+    journal = {Public Health Ontario},
+    url = {https://www.publichealthontario.ca/}
+}
+
+@Article{tphdataset,
+    title = {Personal Service Settings Health Inspections: 2023 Summary Report},
+    author = {Toronto Public Health},
+    year = {2023},
+    journal = {Toronto Public Health},
+    url = {[Insert actual report link]}
+}
+
+@Article{ontarioministryhealth,
+    title = {COVID-19 Safety in Personal Care Settings},
+    author = {Ontario Ministry of Health},
+    year = {2020},
+    journal = {Ontario Health},
+    url = {https://www.health.gov.on.ca/en/}
+}
+
+@Article{tphsearch,
+    title = {City of Toronto Open Data Catalogue},
+    author = {City of Toronto},
+    year = {2023},
+    journal = {Toronto Open Data},
+    url = {https://open.toronto.ca},
+}
+
+@Manual{citeopendatatoronto,
+    title = {opendatatoronto: Access the City of Toronto Open Data Portal},
+    author = {Sharla Gelfand},
+    year = {2022},
+    note = {R package version 0.1.5},
+    url = {https://CRAN.R-project.org/package=opendatatoronto},
+  }
+  
+@Article{citetidyverse,
+    title = {Welcome to the {tidyverse}},
+    author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
+    year = {2019},
+    journal = {Journal of Open Source Software},
+    volume = {4},
+    number = {43},
+    pages = {1686},
+    doi = {10.21105/joss.01686},
+  }
+  
+@Manual{citejanitor,
+    title = {janitor: Simple Tools for Examining and Cleaning Dirty Data},
+    author = {Sam Firke},
+    year = {2023},
+    note = {R package version 2.2.0},
+    url = {https://CRAN.R-project.org/package=janitor},
+  }
+  
+@Manual{citehere,
+    title = {here: A Simpler Way to Find Your Files},
+    author = {Kirill Müller},
+    year = {2020},
+    note = {R package version 1.0.1},
+    url = {https://CRAN.R-project.org/package=here},
+  }
+  
+@Book{tellingstorieswithdata,
+    title = {Telling Stories with Data},
+    author = {Rohan Alexander},
+    year = {2023},
+    month = 07,
+    address = {Boca Raton},
+    publisher = {CRC Press},
+    url = {https://tellingstorieswithdata.com/},
+  }

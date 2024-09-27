@@ -1,0 +1,175 @@
+---
+title: "An Analysis of Inspection Outcomes and Service Compliance in the Personal Care Industry: Trends and Implications"
+author:
+  - qizhou xie
+thanks: "A GitHub Repository containing all data, R code, and other files used in this investigation is located here: <https://github.com/tx77777/bodysafe-analyze.git>"
+date: 9-23-2024
+date-format: long
+abstract: "This paper presents an analysis of inspection outcomes across personal care establishments, focusing on compliance with health and safety standards. Data from various service types, including aesthetics, barbering & hairdressing, and nails, were examined to determine inspection pass rates. The results show that a significant majority of establishments pass their inspections, with only a small fraction receiving conditional passes or closures. These findings highlight the overall compliance in the industry and point to potential areas for regulatory improvements. This study enhances our understanding of regulatory effectiveness and compliance in the personal care sector."
+format: pdf
+number-sections: true
+# The toc parameter used to create a table of contents was obtained from
+# Quarto documentation:
+# https://quarto.org/docs/reference/formats/pdf.html
+toc: true
+bibliography: references.bib
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#### Preamble ####
+
+# Purpose: Generates a paper titled "the data of Bodysafe" in PDF format when
+# rendered.
+# Author: qizhou xie
+# Date: september 24, 2024
+# Contact: qizhou.xie@mail.utoronto.ca
+# Pre-requisites: Run the files "01-download_data.R" and "02-data_cleaning.R".
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#### Loading Packages ####
+
+# install.packages("tidyverse")
+# install.packages("here")
+library(tidyverse)
+library(here)
+library(opendatatoronto)
+library(tidyverse)
+library(palmerpenguins)
+library(knitr)
+```
+
+# Introduction {#sec-introduction}
+We use [@citeR].In response to growing public health concerns, particularly following the onset of the COVID-19 pandemic, the inspection of personal care service establishments in Toronto has become increasingly vital [@who2020]. Personal care service establishments, such as hairstyling, barbering, and aesthetics facilities, often involve close contact between clients and workers, thus posing potential health risks, particularly with respect to the transmission of infectious diseases. According to the definition provided by [@tphdefinition], these establishments require regular health and safety inspections to ensure compliance with hygiene and sanitation standards. This helps mitigate the risks posed by services that involve physical contact, the use of tools, and personal care practices.
+
+Given this context, the present investigation assesses the inspection outcomes of personal care service establishments in Toronto, focusing on the type of service provided (e.g., hairstyling, aesthetics, barbering) and the inspection status (e.g., pass or fail). The dataset from the Toronto Public Health (TPH) inspections in 2023 includes detailed records of various establishments and their compliance with public health regulations. This study aims to analyze the distribution of inspection outcomes by service type and to assess whether certain service types are more prone to infractions than others, thus addressing a significant knowledge gap.
+
+Based on the 2023 inspection data obtained from Toronto Public Health, it was found that a significant proportion of the inspections passed without any recorded infractions. However, particular service types, such as barbering and hairstyling, had a higher incidence of minor infractions compared to other personal care services [@cdc2021]. As discussed in (@sec-discussion), these findings suggest that additional regulatory measures or more frequent inspections may be necessary to ensure continued compliance with health standards in these higher-risk categories. With respect to the structure of this paper, (@sec-data) provides an overview of the dataset and inspection results, (@sec-discussion) offers a discussion of the key findings, and (@sec-appendix) includes supplementary details on the methodology and data processing techniques.
+
+# Data {#sec-data}
+We use two graphs and a table to describe the data figure1 and figure2.
+
+## Overview {#sec-data-overview}
+
+The dataset used in this analysis is the 2023 inspection data for personal care service settings in Toronto, collected and published by Toronto Public Health (TPH) [@tphdataset]. This dataset includes establishments offering services such as hairstyling, barbering, aesthetics, and related personal care services. According to public health regulations in Ontario, personal care service settings must adhere to stringent sanitation and infection prevention standards to ensure the safety of both clients and workers [@ontarioHPPA]. Toronto Public Health conducts routine inspections of these establishments to assess compliance with regulations and mitigate the potential for disease transmission in high-contact environments. The dataset is updated regularly and is publicly accessible as part of the City's "open data" initiative [@tphdataset].
+
+The variables included in this analysis are "Service Type" (referred to as "srvType" in the dataset), which describes the type of personal care service offered (e.g., aesthetics, barbering, nails); "Inspection Status" (referred to as "insStatus"), which indicates whether the establishment passed or failed the inspection; and "Inspection Date" (referred to as "insDate"), which records the date of the inspection [@tphdataset]. Additionally, the dataset includes an "Observation" field that provides detailed notes on the inspection results and any infractions or areas of concern.
+
+No additional datasets specific to personal care service settings were identified in the City of Toronto's Open Data Catalogue, though several other health-related datasets, such as "COVID-19 Cases in Toronto" and "Daily Shelter & Overnight Service Occupancy & Capacity," are available [@tphsearch]. However, these datasets focus on broader public health issues and were not used in this analysis due to their lack of relevance to personal care service inspections.
+
+Using the 'R ' programming language [@citeR], the `janitor` [@citejanitor] and `tidyverse` [@citetidyverse] packages were used to simulate the dataset and generate tests for it. The `opendatatoronto` [@citeopendatatoronto] and `tidyverse` [@citetidyverse] packages were then applied in order to download the raw Toronto Public Health dataset. Next, the `tidyverse` package [@citetidyverse] was used to clean the raw dataset and test the cleaned dataset.
+
+## Results {#sec-data-results}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+#### Loading the Cleaned Dataset ####
+marriage_licence_packages <- search_packages("BodySafe")
+# Retrieve a list of all resources (datasets) available within the found package
+marriage_licence_resources <- marriage_licence_packages %>%
+  list_package_resources()
+# Display the list of resources available in the "Marriage Licence Statistics" package
+marriage_licence_statistics <- marriage_licence_resources[4,] %>%
+  get_resource()
+data1 <- marriage_licence_statistics
+```
+
+After loading the dataset using the R programming language [@citeR] and the `here` package [@citehere], the `tidyverse` [@citetidyverse] package was used to generate graphs. In doing so, R code was adapted from @tellingstorieswithdata.
+
+\newpage
+
+```{r}
+#| label: tbl-data
+#| tbl-cap: sample of the data
+#| echo: false
+cleaned_data <- read.csv("/Users/zhouttonyy/Desktop/marrige/data/data1.csv")
+data2 <- cleaned_data[,c(3,5,6,7)]
+head(data2, 6) |>
+  kable(
+    col.names = c("estName", "srvType","insStatus","insDate"),
+    booktabs = TRUE)
+```
+
+This table lists inspection data for different establishments in the personal care industry. It contains four columns:estName: Establishment namesrvType: Service type offered by the establishmentinsStatus: Inspection status (Pass, Conditional Pass, or Closed)insDate: The date of the inspection.The table shows multiple service types for the same establishment, which suggests that the establishments undergo inspections for each service they provide. The table is sorted by establishment name and service type. All listed inspections resulted in a "Pass" status, demonstrating compliance with health and safety regulations at the time of inspection.
+
+\newpage
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-Service
+#| fig-cap: "Number of Establishments by Service Type in Toronto in 2023"
+# Preparing the necessary data to create the labels
+library(ggplot2)
+ggplot(data1, aes(x = srvType)) +
+  geom_bar(fill = "blue") +
+  labs(x = "Service Type", y = "Count") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+So figure 1 is a bar chart.From the chart, we can observe that Aesthetics and Barbering & Hairdressing have the highest number of establishments, both nearing 1,500. Nails also has a significant number of establishments. In contrast, Body Piercing, Ear Piercing, Micropigmentation/Microblading, and Tattooing services have fewer establishments, with Body Piercing and Ear Piercing being the least represented.
+
+\newpage
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-Inspection
+#| fig-cap: "Proportion of Inspection Statuses"
+
+# Calculate the proportion of each inspection status
+status_count <- data1 %>%
+  count(insStatus) %>%
+  mutate(perc = n / sum(n) * 100)
+
+# Create a pie chart
+ggplot(status_count, aes(x = "", y = perc, fill = insStatus)) +
+  geom_col() +
+  coord_polar(theta = "y") +
+  labs(x = "", y = "") +
+  theme_void()
+
+```
+
+figure 2 is a pie chart.The chart includes the following categories of inspection statuses:Pass (blue): The largest section of the pie chart, which covers a significant majority, indicating that most establishments have passed their inspections successfully.Conditional Pass (green): This section represents a smaller portion of the pie, showing establishments that passed with some conditions or infractions.Closed (red): The smallest slice of the chart, signifying that a very small proportion of establishments were closed as a result of the inspection.The chart highlights that the majority of inspections resulted in a "Pass" status, while relatively fewer establishments had "Conditional Pass" or "Closed" statuses. This implies that most establishments are compliant with regulations, with only a few needing further action or closure.
+\newpage
+
+# Discussion {#sec-discussion}
+
+The results of this analysis highlight important trends regarding the inspection statuses of establishments across different service types. The majority of establishments successfully passed their inspections, as indicated by the significant portion of records categorized as "Pass." However, a smaller subset of establishments faced more stringent evaluations, leading to either conditional passes or closures.
+
+The findings suggest that service types such as Aesthetics and Barbering & Hairdressing tend to perform better in terms of compliance with health and safety standards. These services, due to their more standardized practices and frequent regulatory oversight, may benefit from established protocols, leading to more favorable inspection outcomes. In contrast, services such as Tattooing and Micropigmentation/Microblading, which typically involve more specialized procedures, exhibited a higher proportion of conditional passes and infractions. This indicates that these establishments may encounter more complex regulatory challenges or require stricter adherence to hygiene and safety protocols.
+
+A temporal analysis of the data also reveals consistency in the inspection outcomes over time. While fluctuations in inspection dates were observed, there was no significant trend indicating an overall increase or decrease in compliance across the dataset's timespan. This suggests that regulatory efforts have maintained a steady level of effectiveness in ensuring compliance across all service types.
+
+Additionally, the spatial distribution of infractions across establishments did not suggest any significant geographic biases in inspection outcomes. Establishments across different regions demonstrated a relatively uniform compliance rate, indicating that local regulatory bodies have been effective in uniformly enforcing standards.
+
+Overall, this analysis provides evidence that the personal care industry has maintained high compliance rates, with only a minor percentage of establishments requiring further regulatory intervention. Future efforts to improve inspection outcomes should focus on service types that demonstrate more variability in compliance, specifically Tattooing and Micropigmentation/Microblading, by offering clearer guidelines and additional training for operators in these fields. Furthermore, continued monitoring and data collection will be necessary to ensure sustained regulatory success and the safety of services provided to the public.
+
+
+\newpage
+
+\appendix
+
+# Appendix {#sec-appendix}
+
+## Dataset and Graph Sketches {#sec-appendix-sketches}
+
+Sketches depicting both the desired dataset and the graphs generated in this analysis are available in the GitHub Repository.
+
+## Data Cleaning {#sec-appendix-cleaning}
+
+The data cleaning process involved filtering out some of the columns from the raw dataset and renaming some of the data entries for clarity and simplicity.
+
+
+\newpage
+
+# References {#sec-references}

@@ -1,0 +1,6 @@
+install.packages("lintr")
+install.packages("styler")
+library(styler)
+library(lintr)
+lnit(filename = "/Users/zhouttonyy/Desktop/marrige/scripts/00-simulate_data.R")
+style_file(path = "/Users/zhouttonyy/Desktop/marrige/scripts/00-simulate_data.R")
